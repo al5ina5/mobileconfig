@@ -4,6 +4,7 @@ import AceEditor from 'react-ace'
 import 'ace-builds/src-noconflict/mode-json'
 import 'ace-builds/src-noconflict/theme-github'
 import copy from 'copy-to-clipboard'
+import { motion } from 'framer-motion'
 var fileDownload = require('js-file-download')
 
 export default function Index() {
@@ -46,12 +47,41 @@ export default function Index() {
 
     return <>
         <section>
+            <motion.img
+                animate={{
+                    scale: [0.9, 1, 0.9]
+                }}
+                transition={{
+                    loop: Infinity,
+                    duration: 2
+                }}
+                drag={true}
+                style={{
+                    width: '100px'
+                }}
+                src="/img/mail.svg"
+            />
             <h1>Mobile Config Generator</h1>
-            <h2>Generate your .mobileconfig files for iOS and macOS devices.</h2>
+            <h2>Generate your .mobileconfig files.</h2>
+            <p>Use your .mobileconfig to automatically configure email accounts with custom settings on iOS and macOS devices. Use this to save time when installing emails on multiple devices, providing clients or partners with access, or to keep a quick method to keep your login credentials safe and handy.</p>
+            <p>The easiest way to use your .mobileconfig file is to send it to your target device via email as an attachment. Users will be able to execute the attachment to automatically configure their inboxes on their devices.</p>
+            <a href="#faq">Read the FAQ.</a>
         </section>
 
         <form onSubmit={(e) => {
             e.preventDefault()
+
+            var errors = []
+
+            if (!emailAddress) errors.push('You must enter an email address.')
+            if (!imapHostname) errors.push('You must enter an IMAP hostname.')
+            if (!imapUsername) errors.push('You must enter an IMAP username.')
+            if (!smtpHostname) errors.push('You must enter an SMTP hostname.')
+            if (!smtpUsername) errors.push('You must enter an SMTP username.')
+
+            if (errors.length) {
+                return alert(errors.join('\r\n'))
+            }
 
             Axios.post('/api', mobileConfigObject)
                 .then((res) => {
@@ -155,8 +185,8 @@ export default function Index() {
             </>}
         </form>
 
-        {mobileConfig && <>
-            <section>
+        {emailAddress && mobileConfig && <>
+            <section id="download">
                 <h2>Preview, Edit, and Download</h2>
 
                 <button onClick={() => {
@@ -246,11 +276,11 @@ export default function Index() {
 
         </section>
 
-        <section>
+        <section id="faq">
             <h2>The Facts</h2>
 
-            <p><b>Do you store your my data?</b></p>
-            <p>Nope! We do not store any data. Configuation files are generated on-the-fly and never stored in any database.</p>
+            <p><b>Do you store my data?</b></p>
+            <p>Nope! We do not store any data. Configuration files are generated on-the-fly and never stored in any database. We'll never see, store, obtain, track, or utilize the data on this page outside of your session.</p>
 
             <p><b>Do I have to enter my password?</b></p>
             <p>Nope! If you do not enter a password, the device will prompt the user for the password during installation.</p>
@@ -259,12 +289,22 @@ export default function Index() {
             <p>.mobileconfig files are simple .plist files.</p> */}
 
             <p><b>Is this safe?</b></p>
-            <p>Entirely. Infact, this website API is open source and available on GitHub so you can see exactly how it works.</p>
+            <p>Entirely. In-fact, this website API is open source and <a target="_blank" href="https://github.com/al5ina5/mobileconfig">available on GitHub</a> so you can see exactly how it works.</p>
+
+            <p><b>Help! It's not working!</b></p>
+            <p>If you're facing issues, the most probable cause is an inaccurate username(s), password(s), or hostname(s), or security level(s). Test your data manually to ensure it works.</p>
+
+            <p><b>I'd like for the configuration files to be signed by company or organization.</b></p>
+            <p>We provide support for premium configuration files via Discord to all Patreon subscribers. <a href="#support">Pledge now to support c00l projects like this one</a>!</p>
+
+            <p><b>Help! The installation procedure warns me that this configuration file is unverified or unsigned in red!</b></p>
+            <p>By default, the .mobileconfig files generated here are not signed with a private key. This does not cause any issues, is totally safe, and does not alter the usability of the configuration file. If you'd like yours signed by your organization, refer to the question above!</p>
         </section>
 
-        <section>
+        <section id="support">
             <h2>Support the Developer</h2>
-            <p>If you'd like to support the developer because you found it helpful, clever, ingenious, attractive, or maybe because you absolutely hate it, you'd be contributing to something great!</p>
+
+            <p>If you'd like to support the developer because you found this helpful, clever, ingenious, attractive, or maybe because you absolutely hate it, you'd be contributing to something great!</p>
 
             <h3>Patreon</h3>
             <a href="https://patreon.com/sebastianalsina">
@@ -280,7 +320,9 @@ export default function Index() {
 
         <section>
             <footer>
-                <a target="_blank" href="http://sebastianalsina.com">@al5ina5</a> {new Date().getFullYear()}
+                <p>
+                    developed with <i className="fas fa-heart" /> by <a target="_blank" href="http://sebastianalsina.com">@al5ina5</a>
+                </p>
             </footer>
         </section>
     </>

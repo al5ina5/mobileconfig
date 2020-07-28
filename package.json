@@ -4,10 +4,17 @@
   "main": "index.js",
   "author": "Sebastian Alsina <alsinas@me.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "push": "git add . && git commit -am \"Auto Deploy\" && git push"
+  },
   "dependencies": {
     "ace-builds": "^1.4.12",
     "axios": "^0.19.2",
     "copy-to-clipboard": "^3.3.1",
+    "framer-motion": "^2.2.0",
     "fs": "^0.0.1-security",
     "js-file-download": "^0.4.12",
     "mobileconfig": "^2.3.1",
