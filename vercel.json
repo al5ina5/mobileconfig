@@ -1,0 +1,21 @@
+{
+    "headers": [
+      {
+        "source": "/api/download.js",
+        "headers" : [
+            {
+              "key" : "Content-Description",
+              "value" : "File Transfer"
+            },
+            {
+              "key" : "Content-Type",
+              "value" : "application/xml"
+            },
+            {
+              "key" : "Content-Disposition",
+              "value" : "Attachment; filename=\"email-account.mobileconfig\""
+            }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,21 @@
+.inputGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 2rem;
+}
+
+@media (max-width: 600px) {
+    .inputGroup {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 0;
+    }
+}
+
+table, tbody {
+    max-width: 400px !important;
+    width: 100% !important;
+    color: red;
+    overflow: scroll;
+}

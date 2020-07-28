@@ -1,0 +1,20 @@
+{
+  "name": "email-configurator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sebastian Alsina <alsinas@me.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ace-builds": "^1.4.12",
+    "axios": "^0.19.2",
+    "copy-to-clipboard": "^3.3.1",
+    "fs": "^0.0.1-security",
+    "js-file-download": "^0.4.12",
+    "mobileconfig": "^2.3.1",
+    "next": "^9.5.0",
+    "react": "^16.13.1",
+    "react-ace": "^9.1.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.10"
+  }
+}
