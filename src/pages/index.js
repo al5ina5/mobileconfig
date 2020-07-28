@@ -296,7 +296,7 @@ export default function Index() {
             <p>Entirely. In-fact, this website API is open source and <a target="_blank" href="https://github.com/al5ina5/mobileconfig">available on GitHub</a> so you can see exactly how it works.</p>
 
             <p><b>Help! It's not working!</b></p>
-            <p>If you're facing issues, the most probable cause is an inaccurate username(s), password(s), or hostname(s), or security level(s). Test your data manually to ensure it works.</p>
+            <p>If you're facing issues, the most probable cause is an inaccurate username(s), password(s), or hostname(s), or security level(s). Try configuring your mailbox with a mail client manually to ensure your credentials are working.</p>
 
             <p><b>I'd like for the configuration files to be signed by company or organization.</b></p>
             <p>We provide support for premium configuration files via Discord to all Patreon subscribers. <a href="#support">Pledge now to support c00l projects like this one</a>!</p>
