@@ -67,7 +67,9 @@ export default function Index() {
             <h2>Generate your .mobileconfig files instantly—<i>for free</i>.</h2>
             <p>Use your .mobileconfig to automatically configure email accounts with custom settings on iOS and macOS devices. Use this to save time when installing emails on multiple devices, providing clients or partners with access, or to keep a quick method to keep your login credentials safe and handy.</p>
             <p>The easiest way to use your .mobileconfig file is to send it to your target device via email as an attachment. Users will be able to execute the attachment to automatically configure their inboxes on their devices.</p>
-            <a href="#faq">Read the FAQ.</a>
+            <p>
+                <a href="#faq">Read the FAQ</a>.
+            </p>
         </section>
 
         <form onSubmit={(e) => {
