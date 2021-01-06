@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "ace-builds": "^1.4.12",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "copy-to-clipboard": "^3.3.1",
     "framer-motion": "^2.2.0",
     "fs": "^0.0.1-security",
